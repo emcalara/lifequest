@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Life Quest</title>
+<!-- home-screen name + icon -->
+<meta name="apple-mobile-web-app-title" content="Life Quest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#fff7ec">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="manifest" href="manifest.json">
+<style>
+  html,body{margin:0;height:100%;background:#fff7ec;font-family:system-ui,sans-serif}
+  iframe{position:fixed;inset:0;width:100%;height:100%;border:0;padding-top:env(safe-area-inset-top);box-sizing:border-box;background:#fff7ec}
+  .splash{position:fixed;inset:0;display:grid;place-items:center;text-align:center;color:#1d1537}
+  .splash img{width:110px;height:110px;border-radius:26px}
+  .splash a{color:#7b2ff7;font-weight:700}
+</style>
+</head>
+<body>
+<div class="splash"><div><img src="icon-512.png" alt=""><p><b>Life Quest</b><br>Loading…</p>
+  <p style="font-size:13px">Taking too long? <a id="direct" href="#">Open it here</a></p></div></div>
+<script>
+  /* ⬇️ PASTE YOUR WEB APP LINK HERE (Deploy → Manage deployments → Web app URL) */
+  var APP_URL = 'PASTE-YOUR-WEB-APP-URL-HERE';
+
+  /* 'frame'    = the app opens inside this page (feels like a real app, recommended)
+     'redirect' = jumps straight to Google's page (use this if you keep getting logged out) */
+  var MODE = 'frame';
+
+  document.getElementById('direct').href = APP_URL;
+  if (MODE === 'redirect') location.replace(APP_URL);
+  else {
+    var f = document.createElement('iframe');
+    f.src = APP_URL; f.title = 'Life Quest';
+    f.allow = 'clipboard-write';
+    document.body.appendChild(f);
+  }
+</script>
+</body>
+</html>
